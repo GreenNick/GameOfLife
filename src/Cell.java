@@ -12,7 +12,7 @@ public class Cell {
     /**
      * Constructor that creates a new Cell with a specified living status.
      *
-     * @param isAlive true if the new cell is alive, false if it is dead.
+     * @param isAlive true if the new cell is alive, false if it is dead
      */
     public Cell(boolean isAlive) {
         this.isAlive = isAlive;
@@ -21,7 +21,7 @@ public class Cell {
     /**
      * Accessor method that returns the current living status of the cell.
      *
-     * @return true if the cell is alive, false if it is dead.
+     * @return true if the cell is alive, false if it is dead
      */
     public boolean getIsAlive() {
         return isAlive;
@@ -30,7 +30,7 @@ public class Cell {
     /**
      * Mutator method that updates the cell to be alive or dead.
      *
-     * @param isAlive true to bring the cell to life, false to kill it.
+     * @param isAlive true to bring the cell to life, false to kill it
      */
     public void setIsAlive(boolean isAlive) {
         this.isAlive = isAlive;
