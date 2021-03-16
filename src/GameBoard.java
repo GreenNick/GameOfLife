@@ -1,7 +1,10 @@
+import java.util.Random;
+
 public class GameBoard {
     private int xSize;
     private int ySize;
     private Cell[][] backingArray;
+    private Random rand;
 
     /**
      * Default constructor that creates a new 500 by 500 GameBoard.
@@ -21,6 +24,7 @@ public class GameBoard {
         this.xSize = xSize;
         this.ySize = ySize;
         backingArray = new Cell[xSize][ySize];
+        rand = new Random();
 
         for (int x = 0; x < xSize; x++) {
             for (int y = 0; y < ySize; y++) {
@@ -38,6 +42,21 @@ public class GameBoard {
         xSize = backingArray.length;
         ySize = backingArray[0].length;
         this.backingArray = backingArray;
+        rand = new Random();
+    }
+
+    /**
+     * Randomizes the living status of every cell in the backingArray. There is
+     * a 50% chance that a given cell will be brought to life and a 50% chance
+     * that the cell will be killed.
+     *
+     */
+    public void randomize() {
+        for (Cell[] row : backingArray) {
+            for (Cell element : row) {
+                element.setIsAlive(rand.nextInt(2) == 0);
+            }
+        }
     }
 
     /**
