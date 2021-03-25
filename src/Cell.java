@@ -23,16 +23,16 @@ public class Cell {
      *
      * @return true if the cell is alive, false if it is dead
      */
-    public boolean getIsAlive() {
+    public boolean getStatus() {
         return isAlive;
     }
 
     /**
-     * Mutator method that updates the cell to be alive or dead.
+     * Mutator method that updates the cell's status to be alive or dead.
      *
      * @param isAlive true to bring the cell to life, false to kill it
      */
-    public void setIsAlive(boolean isAlive) {
+    public void setStatus(boolean isAlive) {
         this.isAlive = isAlive;
     }
 
