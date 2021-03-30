@@ -4,6 +4,9 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.stage.Stage;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class GameController extends Application {
     private final GameBoard board;
@@ -41,11 +44,27 @@ public class GameController extends Application {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+
+        runGameLoop();
     }
 
     /**
-     * Private helper method that re-renders the canvas to reflect the current
-     * state of the backing array.
+     * Private helper method that starts the game loop. The state of the
+     * GameBoard is updated at a fixed interval and the Canvas renders the
+     * updated GameBoard.
+     *
+     */
+    private void runGameLoop() {
+        ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+        scheduler.scheduleWithFixedDelay(() -> {
+            board.updateBoardState();
+            updateCanvas();
+        }, 0, 100, TimeUnit.MILLISECONDS);
+    }
+
+    /**
+     * Private helper method that re-renders the Canvas to reflect the current
+     * state of the GameBoard.
      *
      */
     private void updateCanvas() {
