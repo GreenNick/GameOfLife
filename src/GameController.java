@@ -3,7 +3,6 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class GameController extends Application {
@@ -50,15 +49,13 @@ public class GameController extends Application {
      *
      */
     private void updateCanvas() {
+        graphicsContext.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+
         for (int x = 0; x < board.getXSize(); x++) {
             for (int y = 0; y < board.getYSize(); y++) {
                 if (board.getBackingArray()[x][y].getStatus()) {
-                    graphicsContext.setFill(Color.BLACK);
-                } else {
-                    graphicsContext.setFill(Color.WHITE);
+                    graphicsContext.fillRect(x * 10, y * 10, 10, 10);
                 }
-
-                graphicsContext.fillRect(x * 10, y * 10, 10, 10);
             }
         }
     }
