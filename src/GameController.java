@@ -7,34 +7,20 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class GameController extends Application {
-    private final int canvasWidth;
-    private final int canvasHeight;
     private final GameBoard board;
     private final Canvas canvas;
     private final GraphicsContext graphicsContext;
 
     /**
-     * Default Constructor that creates a new GameController with a backing
-     * board that has 75 columns and 50 rows.
+     * Default constructor that creates a new GameController that has a backing
+     * GameBoard with the default number of rows (50) and columns (75). The
+     * initial state of the GameBoard is randomized.
      *
      */
     public GameController() {
-        this(75, 50);
-    }
-
-    /**
-     * Constructor that creates a new GameController with a GameBoard of a
-     * specified size.
-     *
-     * @param xSize the number of cells in each row of the board
-     * @param ySize the number of cells in each column of the board.
-     */
-    public GameController(int xSize, int ySize) {
-        canvasWidth = xSize * 10;
-        canvasHeight = ySize * 10;
-        board = new GameBoard(xSize, ySize);
+        board = new GameBoard();
         board.randomize();
-        canvas = new Canvas(canvasWidth, canvasHeight);
+        canvas = new Canvas(board.getXSize() * 10, board.getYSize() * 10);
         graphicsContext = canvas.getGraphicsContext2D();
     }
 

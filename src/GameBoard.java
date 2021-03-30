@@ -11,7 +11,7 @@ public class GameBoard {
      *
      */
     public GameBoard() {
-        this(500, 500);
+        this(75, 50);
     }
 
     /**
