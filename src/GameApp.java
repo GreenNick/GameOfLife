@@ -8,7 +8,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-public class GameController extends Application {
+public class GameApp extends Application {
     private final GameBoard board;
     private final Canvas canvas;
     private final GraphicsContext graphicsContext;
@@ -19,7 +19,7 @@ public class GameController extends Application {
      * initial state of the GameBoard is randomized.
      *
      */
-    public GameController() {
+    public GameApp() {
         board = new GameBoard();
         board.randomize();
         canvas = new Canvas(board.getXSize() * 10, board.getYSize() * 10);
