@@ -1,6 +1,7 @@
 import java.util.Random;
 
 public class GameBoard {
+    private int generation;
     private final int xSize;
     private final int ySize;
     private final Random rand;
@@ -114,6 +115,7 @@ public class GameBoard {
         }
 
         backingArray = nextBoard;
+        generation++;
     }
 
     /**
@@ -153,6 +155,15 @@ public class GameBoard {
      */
     public int getYSize() {
         return ySize;
+    }
+
+    /**
+     * Accessor method that returns the current generation of the GameBoard.
+     *
+     * @return the current generation
+     */
+    public String getGeneration() {
+        return Integer.toUnsignedString(generation);
     }
 
     /**
